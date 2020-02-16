@@ -238,12 +238,21 @@ public class MainActivity extends AppCompatActivity {
                 MicrophoneHelper.REQUEST_PERMISSION);
     }
 
-    // Code that updates the design
+    // Methid that updates the design
     private void updateDesign(String colorHex, String colorAltHex){
+        // Sets the primary color of the design
         int color = Color.parseColor(colorHex);
+
+        // Sets the secondary color of the design
         int colorAlt = Color.parseColor(colorAltHex);
+
+        // Sets the color for recognition of the design
         colorAltGlobal = colorAlt;
+
+        // Changes the action bar to the primary color
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(color));
+
+        // Changes the background of the app to the secondary color
         recyclerView.setBackgroundColor(colorAlt);
     }
 
@@ -266,10 +275,10 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        // Method that allows the color picker to happen
+        // Method that allows the color picker to happen || Checks if user wishes to apply the message and if the colorStringMessage contains a color
         if (inputmessage.equalsIgnoreCase("apply") && colorStringMessage.length() != 0) {
 
-
+            // Checks for the selected primary color
             if(colorStringMessage.equalsIgnoreCase("blue") || colorAltGlobal == Color.parseColor("#ffaf59")){
                 if(colorStringMessage.equalsIgnoreCase("orange")){
                     Log.d("Color String Message", colorStringMessage);
@@ -286,6 +295,11 @@ public class MainActivity extends AppCompatActivity {
             else if(colorStringMessage.equalsIgnoreCase("red")) {
                 updateDesign("#ff4d4d", "#ffa7a6");
             }
+            else if(colorStringMessage.equalsIgnoreCase("orange")){
+                updateDesign("#325ca8", "#ffaf59");
+            }
+
+            // Same concept for changing the view to the other different colors
 
         }
         this.inputMessage.setText("");
